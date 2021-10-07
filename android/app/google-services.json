@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "389804926557",
+    "firebase_url": "https://spry-alignment-309605-default-rtdb.firebaseio.com",
+    "project_id": "spry-alignment-309605",
+    "storage_bucket": "spry-alignment-309605.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389804926557:android:29c53d9879dc767e0f0fb4",
+        "android_client_info": {
+          "package_name": "com.example.squareone_sam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389804926557-g0ot5ibhl3lffb6fkbfd83hehjelujp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.squareone_sam",
+            "certificate_hash": "ade0ebc72d32e327348f584dfec59bcd205fc9f3"
+          }
+        },
+        {
+          "client_id": "389804926557-qpl970me20uucmj2i24i4otmsar3ak32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqTo2VX0k1x7KaSxxlLt-qvo0wsft6RVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389804926557-qpl970me20uucmj2i24i4otmsar3ak32.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
