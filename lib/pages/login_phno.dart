@@ -15,99 +15,116 @@ class _Login_PhnoState extends State<Login_Phno> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Scaffold(
-            backgroundColor: Color(0xff762929),
-            body: Center(
-              child: SafeArea(
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image(image: AssetImage("assets/logo.png")),
-                      SizedBox(height: 40),
-                      Text(
-                        "Enter your phone number to login",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
+          child: Scaffold(
+              body:Container(
+          constraints: BoxConstraints.expand(),
+    decoration: BoxDecoration(
+        color: Colors.black.withOpacity(0.2),
+        backgroundBlendMode: BlendMode.color,
+        image: DecorationImage(
+            image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
+             ),
+                child:Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(253, 184, 70, 0.2),
+                  ),
+                child:Center(
+                child: SafeArea(
+                  child: Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(image: AssetImage("assets/logo.png")),
+                        SizedBox(height: 40),
+                        Text(
+                          "Enter your phone number to login",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 30),
-                      Container(
-                          width: 300,
-                          child: TextFormField(
-                            controller: _controller,
-                            maxLength: 10,
-                            keyboardType: TextInputType.number,
-                            style: TextStyle(color: Colors.white),
-                            decoration: InputDecoration(
-                              floatingLabelStyle:
-                                  TextStyle(color: Colors.white),
-                              prefixStyle: TextStyle(
-                                color: Colors.white,
-                              ),
-                              labelStyle: TextStyle(
-                                color: Colors.white,
-                              ),
-                              prefixIcon: Icon(
-                                Icons.smartphone,
-                                color: Colors.white,
-                              ),
-                              prefixText: '+91 ',
-                              labelText: "Enter Your Phone Number",
-                              fillColor: Colors.white,
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(
-                                    color: Colors.white, width: 2.0),
-                                borderRadius: BorderRadius.circular(25.0),
-                              ),
-                            ),
-                          )),
-                      SizedBox(height: 30),
-                      Container(
-                        height: 50.0,
-                        margin: EdgeInsets.all(10),
-                        child: RaisedButton(
-                          onPressed: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) =>
-                                    Login_OTP(_controller.text)));
-                          },
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(80.0)),
-                          padding: EdgeInsets.all(0.0),
-                          child: Ink(
-                            decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color(0xff000000),
-                                    Color(0xff000000)
-                                  ],
-                                  begin: Alignment.centerLeft,
-                                  end: Alignment.centerRight,
+                        SizedBox(height: 30),
+                        Container(
+                            width: 300,
+                            child: TextFormField(
+                              controller: _controller,
+                              maxLength: 10,
+                              keyboardType: TextInputType.number,
+                              style: TextStyle(color: Colors.black),
+                              decoration: InputDecoration(
+                                floatingLabelStyle:
+                                    TextStyle(color: Colors.black),
+                                prefixStyle: TextStyle(
+                                  color: Colors.black,
                                 ),
-                                borderRadius: BorderRadius.circular(30.0)),
-                            child: Container(
-                              constraints: BoxConstraints(
-                                  maxWidth: 250.0, minHeight: 50.0),
-                              alignment: Alignment.center,
-                              child: Text(
-                                "SEND OTP",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 15),
+                                labelStyle: TextStyle(
+                                  color: Colors.black,
+                                ),
+                                prefixIcon: Icon(
+                                  Icons.smartphone,
+                                  color: Colors.black,
+                                ),
+                                prefixText: '+91 ',
+                                labelText: "Enter Your Phone Number",
+                                fillColor: Colors.black,
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      color: Colors.black, width: 2.0),
+                                  borderRadius: BorderRadius.circular(25.0),
+                                ),
+                              ),
+                            )
+                        ),
+                        SizedBox(height: 30),
+                        Container(
+                          height: 50.0,
+                          margin: EdgeInsets.all(10),
+                          child: RaisedButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) =>
+                                      Login_OTP(_controller.text)));
+                            },
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(80.0)),
+                            padding: EdgeInsets.all(0.0),
+
+                            child: Ink(
+                              decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color(0xff000000),
+                                      Color(0xff000000)
+                                    ],
+                                    begin: Alignment.centerLeft,
+                                    end: Alignment.centerRight,
+                                  ),
+                                  borderRadius: BorderRadius.circular(30.0)),
+                              child: Container(
+                                constraints: BoxConstraints(
+                                    maxWidth: 250.0, minHeight: 50.0),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "SEND OTP",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 15),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
-            )
-        )
-    );
+          )
+          ),
+          ),
+      );
   }
 }
+

@@ -15,15 +15,14 @@ class Login_OTP extends StatefulWidget {
 
 class _Login_OTPState extends State<Login_OTP> {
   final GlobalKey<ScaffoldState> _scaffoldkey = GlobalKey<ScaffoldState>();
-  late String _verficationCode;
+   String _verficationCode;
   final _pinPutController = TextEditingController();
   final _pinPutFocusNode = FocusNode();
   final _pageController = PageController();
   final BoxDecoration pinPutDecoration = BoxDecoration(
-    color: const Color.fromRGBO(43, 46, 66, 1),
-    borderRadius: BorderRadius.circular(10.0),
+    borderRadius: BorderRadius.circular(50.0),
     border: Border.all(
-      color: const Color.fromRGBO(126, 203, 224, 1),
+      color: const Color.fromRGBO(0, 0, 0, 1.0),
     ),
   );
 
@@ -32,8 +31,19 @@ class _Login_OTPState extends State<Login_OTP> {
     return Center(
       child: Scaffold(
         key: _scaffoldkey,
-        backgroundColor: Color(0xff762929),
-        body: Center(
+        backgroundColor: Color(0xFFEEEEEE),
+        body: Container(
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.2),
+            backgroundBlendMode: BlendMode.color,
+            image: DecorationImage(
+                image: AssetImage("assets/background_image.jpeg"), fit: BoxFit.cover),
+          ),
+          child:Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(253, 184, 70, 0.2),
+              ),
           child: SafeArea(
             child: Center(
               child: Column(
@@ -45,24 +55,27 @@ class _Login_OTPState extends State<Login_OTP> {
                   Text(
                     "Enter OTP",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 20,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
                   SizedBox(height: 30),
                   Text(
                     "We've sent the OTP via SMS to",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
+                      color: Colors.black,
+                      fontSize: 18,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
                   SizedBox(height: 5),
                   Text(
                     "+91-${widget.phone}",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 16,
+                        fontWeight: FontWeight.bold
                     ),
                   ),
                   SizedBox(height: 30),
@@ -72,7 +85,7 @@ class _Login_OTPState extends State<Login_OTP> {
                       fieldsCount: 6,
                       withCursor: true,
                       textStyle:
-                          const TextStyle(fontSize: 25.0, color: Colors.white),
+                          const TextStyle(fontSize: 25.0, color: Colors.black),
                       eachFieldWidth: 40.0,
                       eachFieldHeight: 55.0,
                       focusNode: _pinPutFocusNode,
@@ -80,8 +93,8 @@ class _Login_OTPState extends State<Login_OTP> {
                       submittedFieldDecoration: pinPutDecoration,
                       selectedFieldDecoration: pinPutDecoration,
                       followingFieldDecoration: pinPutDecoration,
-                      pinAnimationType: PinAnimationType.fade,
-                      onSubmit: (pin) async {
+                      pinAnimationType: PinAnimationType.rotation,
+                        onSubmit: (pin) async {
                         try {
                           await FirebaseAuth.instance
                               .signInWithCredential(
@@ -93,14 +106,15 @@ class _Login_OTPState extends State<Login_OTP> {
                               Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (Context) => HomePage("${widget.phone}")),
+                                      builder: (Context) =>
+                                          HomePage("${widget.phone}")),
                                   (route) => false);
                               print('pass to home');
                             }
                           });
                         } catch (e) {
                           FocusScope.of(context).unfocus();
-                          _scaffoldkey.currentState!.showSnackBar(
+                          _scaffoldkey.currentState.showSnackBar(
                               SnackBar(content: Text('Invaild OTP')));
                         }
                       },
@@ -123,14 +137,15 @@ class _Login_OTPState extends State<Login_OTP> {
                                 Navigator.pushAndRemoveUntil(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (Context) => HomePage("${widget.phone}")),
+                                        builder: (Context) =>
+                                            HomePage("${widget.phone}")),
                                     (route) => false);
                                 print('pass to home');
                               }
                             });
                           } catch (e) {
                             FocusScope.of(context).unfocus();
-                            _scaffoldkey.currentState!.showSnackBar(
+                            _scaffoldkey.currentState.showSnackBar(
                                 SnackBar(content: Text('Invaild OTP')));
                           }
                         };
@@ -165,9 +180,9 @@ class _Login_OTPState extends State<Login_OTP> {
           ),
         ),
       ),
+    ),
     );
   }
-
 
   //Firebase Auth
   _verifyPhone() async {
@@ -180,7 +195,8 @@ class _Login_OTPState extends State<Login_OTP> {
             if (value.user != null) {
               Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (Context) => HomePage("${widget.phone}")),
+                  MaterialPageRoute(
+                      builder: (Context) => HomePage("${widget.phone}")),
                   (route) => false);
               print('user logged in');
             }
@@ -189,7 +205,7 @@ class _Login_OTPState extends State<Login_OTP> {
         verificationFailed: (FirebaseAuthException e) {
           print(e.message);
         },
-        codeSent: (String verficationID, int? resendToken) {
+        codeSent: (String verficationID, int resendToken) {
           setState(() {
             _verficationCode = verficationID;
           });
