@@ -21,8 +21,9 @@ class _Login_OTPState extends State<Login_OTP> {
   final _pageController = PageController();
   final BoxDecoration pinPutDecoration = BoxDecoration(
     borderRadius: BorderRadius.circular(50.0),
+    color: Colors.white,
     border: Border.all(
-      color: const Color.fromRGBO(0, 0, 0, 1.0),
+      color: const Color.fromRGBO(255, 255, 255, 1.0),
     ),
   );
 
@@ -35,15 +36,12 @@ class _Login_OTPState extends State<Login_OTP> {
         body: Container(
           constraints: BoxConstraints.expand(),
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.2),
+            color: Colors.white.withOpacity(0.2),
             backgroundBlendMode: BlendMode.color,
             image: DecorationImage(
-                image: AssetImage("assets/background_image.jpeg"), fit: BoxFit.cover),
+                image: AssetImage("assets/sample.jpeg"), fit: BoxFit.cover),
           ),
-          child:Container(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(253, 184, 70, 0.2),
-              ),
+
           child: SafeArea(
             child: Center(
               child: Column(
@@ -53,9 +51,9 @@ class _Login_OTPState extends State<Login_OTP> {
                   Image(image: AssetImage("assets/logo.png")),
                   SizedBox(height: 40),
                   Text(
-                    "Enter OTP",
+                    "Enter 6-Digit OTP",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 20,
                         fontWeight: FontWeight.bold
                     ),
@@ -64,7 +62,7 @@ class _Login_OTPState extends State<Login_OTP> {
                   Text(
                     "We've sent the OTP via SMS to",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 18,
                         fontWeight: FontWeight.bold
                     ),
@@ -73,20 +71,20 @@ class _Login_OTPState extends State<Login_OTP> {
                   Text(
                     "+91-${widget.phone}",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 16,
                         fontWeight: FontWeight.bold
                     ),
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.all(30.0),
+                    padding: const EdgeInsets.all(60.0),
                     child: PinPut(
                       fieldsCount: 6,
                       withCursor: true,
                       textStyle:
                           const TextStyle(fontSize: 25.0, color: Colors.black),
-                      eachFieldWidth: 40.0,
+                      eachFieldWidth: 20.0,
                       eachFieldHeight: 55.0,
                       focusNode: _pinPutFocusNode,
                       controller: _pinPutController,
@@ -156,7 +154,8 @@ class _Login_OTPState extends State<Login_OTP> {
                       child: Ink(
                         decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [Color(0xff000000), Color(0xff000000)],
+                              colors: [ Color(0xff66664d),
+                                Color(0xfff59e5b)],
                               begin: Alignment.centerLeft,
                               end: Alignment.centerRight,
                             ),
@@ -180,7 +179,6 @@ class _Login_OTPState extends State<Login_OTP> {
           ),
         ),
       ),
-    ),
     );
   }
 

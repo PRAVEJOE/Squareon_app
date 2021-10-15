@@ -15,20 +15,17 @@ class _Login_PhnoState extends State<Login_Phno> {
   @override
   Widget build(BuildContext context) {
     return Center(
-          child: Scaffold(
-              body:Container(
-          constraints: BoxConstraints.expand(),
-    decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.2),
-        backgroundBlendMode: BlendMode.color,
-        image: DecorationImage(
-            image: AssetImage("assets/background.jpeg"), fit: BoxFit.cover),
-             ),
-                child:Container(
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(253, 184, 70, 0.2),
-                  ),
-                child:Center(
+      child: Scaffold(
+        body: Container(
+            constraints: BoxConstraints.expand(),
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.2),
+              backgroundBlendMode: BlendMode.color,
+              image: DecorationImage(
+                  image: AssetImage("assets/sample.jpeg"), fit: BoxFit.cover),
+            ),
+
+              child: Center(
                 child: SafeArea(
                   child: Center(
                     child: Column(
@@ -40,43 +37,42 @@ class _Login_PhnoState extends State<Login_Phno> {
                         Text(
                           "Enter your phone number to login",
                           style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          ),
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 30),
                         Container(
                             width: 300,
                             child: TextFormField(
+                              
                               controller: _controller,
                               maxLength: 10,
                               keyboardType: TextInputType.number,
-                              style: TextStyle(color: Colors.black),
+                              style: TextStyle(color: Colors.white),
                               decoration: InputDecoration(
                                 floatingLabelStyle:
-                                    TextStyle(color: Colors.black),
+                                    TextStyle(color: Colors.white),
                                 prefixStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                                 labelStyle: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                                 prefixIcon: Icon(
                                   Icons.smartphone,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                                 prefixText: '+91 ',
                                 labelText: "Enter Your Phone Number",
-                                fillColor: Colors.black,
+                                fillColor: Colors.white,
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: const BorderSide(
-                                      color: Colors.black, width: 2.0),
+                                      color: Colors.white, width: 2.0),
                                   borderRadius: BorderRadius.circular(25.0),
                                 ),
                               ),
-                            )
-                        ),
+                            )),
                         SizedBox(height: 30),
                         Container(
                           height: 50.0,
@@ -90,13 +86,12 @@ class _Login_PhnoState extends State<Login_Phno> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(80.0)),
                             padding: EdgeInsets.all(0.0),
-
                             child: Ink(
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [
-                                      Color(0xff000000),
-                                      Color(0xff000000)
+                                      Color(0xff66664d),
+                                      Color(0xfff59e5b)
                                     ],
                                     begin: Alignment.centerLeft,
                                     end: Alignment.centerRight,
@@ -104,12 +99,13 @@ class _Login_PhnoState extends State<Login_Phno> {
                                   borderRadius: BorderRadius.circular(30.0)),
                               child: Container(
                                 constraints: BoxConstraints(
-                                    maxWidth: 250.0, minHeight: 50.0),
+                                    maxWidth: 200.0, minHeight: 50.0),
                                 alignment: Alignment.center,
                                 child: Text(
                                   "SEND OTP",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
+                                    fontWeight: FontWeight.bold,
                                       color: Colors.white, fontSize: 15),
                                 ),
                               ),
@@ -121,10 +117,9 @@ class _Login_PhnoState extends State<Login_Phno> {
                   ),
                 ),
               ),
-          )
-          ),
-          ),
-      );
+            )
+        ),
+
+    );
   }
 }
-
