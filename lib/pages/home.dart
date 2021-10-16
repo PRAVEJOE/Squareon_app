@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:get/instance_manager.dart';
 import 'package:squareone_sam/controllers/product_controller.dart';
 import 'package:squareone_sam/controllers/tree_controller.dart';
 import 'package:squareone_sam/pages/product_tile.dart';
+import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 
 class HomePage extends StatelessWidget {
   final TreeController productController = Get.put(TreeController());
-   final String phone;
-
-  HomePage(this.phone);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         elevation: 0,
+        backgroundColor: Colors.grey,
         leading: Icon(
           Icons.arrow_back_ios,
         ),
@@ -52,8 +54,12 @@ class HomePage extends StatelessWidget {
           ),
           Expanded(
             child: Obx(() {
-              if (productController.isLoading.value)
-                return Center(child: CircularProgressIndicator());
+              if (productController.isLoading.value){
+                return SpinKitSpinningLines(
+                  color: Colors.grey[600],
+                  size: 70.0,
+                );
+              }
               else
                 return StaggeredGridView.countBuilder(
                   crossAxisCount: 2,

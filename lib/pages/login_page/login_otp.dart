@@ -1,8 +1,12 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pin_put/pin_put.dart';
 import 'package:squareone_sam/pages/home.dart';
+
+import '../home_page.dart';
+import '../mainPage.dart';
 
 class Login_OTP extends StatefulWidget {
   final String phone;
@@ -50,14 +54,19 @@ class _Login_OTPState extends State<Login_OTP> {
                 children: [
                   Image(image: AssetImage("assets/logo.png")),
                   SizedBox(height: 40),
-                  Text(
-                    "Enter 6-Digit OTP",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                        fontWeight: FontWeight.bold
-                    ),
+                    DefaultTextStyle(
+                   style: const TextStyle(
+                    fontSize: 20.0,
+                     color: Colors.white
+                 ),
+                  child: AnimatedTextKit(
+                    repeatForever: true,
+                    animatedTexts: [
+                      TypewriterAnimatedText('Enter 6 Digit OTP',
+                          curve: Curves.bounceInOut,speed: Duration(milliseconds: 120),),
+                    ],isRepeatingAnimation: false,
                   ),
+              ),
                   SizedBox(height: 30),
                   Text(
                     "We've sent the OTP via SMS to",
@@ -105,7 +114,7 @@ class _Login_OTPState extends State<Login_OTP> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (Context) =>
-                                          HomePage("${widget.phone}")),
+                                          MainPage()),
                                   (route) => false);
                               print('pass to home');
                             }
@@ -136,7 +145,7 @@ class _Login_OTPState extends State<Login_OTP> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (Context) =>
-                                            HomePage("${widget.phone}")),
+                                            MainPage()),
                                     (route) => false);
                                 print('pass to home');
                               }
@@ -194,7 +203,7 @@ class _Login_OTPState extends State<Login_OTP> {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                      builder: (Context) => HomePage("${widget.phone}")),
+                      builder: (Context) => MainPage()),
                   (route) => false);
               print('user logged in');
             }

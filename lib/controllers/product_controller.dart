@@ -18,7 +18,7 @@ class ProductController extends GetxController {
       var products = await RemoteServices.fetchProducts();
         productList.value = TreeItemItem as List<TreeItemItem>;
     } finally {
-      isLoading(false);
+      isLoading(true);
     }
   }
 }

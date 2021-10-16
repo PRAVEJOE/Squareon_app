@@ -18,7 +18,7 @@ class TreeController extends GetxController {
       var products = await RemoteServices.fetchProducts();
       if(products!=null){
         print(products);
-      productList.value=products.data.treeItems[0].items;
+      productList.value=products.data.treeItems[3].items;
     }
       }finally {
       isLoading(false);
